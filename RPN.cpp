@@ -15,7 +15,6 @@ int main()
     stack<string> st;   // stack definition
 
     cin >> in;
-    st.push(in);
     
     int value1;
     int value2;
@@ -32,13 +31,13 @@ int main()
             {
                 stackSize = st.size();
                 try{
-                    if((stackSize - 1) < 2){//Stack already has 1 element by default which is the operator somehow
+                    if(stackSize < 2){//Stack already has 1 element by default which is the operator somehow
                         //throw st.size();
                         throw stackSize;
                     }
                 }
                 catch(int e){
-                    cout << "ERROR: Stack does not have at least 2 operands but has " << e - 1 << " element(s) in the stack when operator is given!" << endl;
+                    cout << "ERROR: Stack does not have at least 2 operands but has " << e << " element(s) in the stack when operator is given!" << endl;
                     exit(1);
                 }
                 
@@ -82,7 +81,7 @@ int main()
     }
     stackSize = st.size();
     try{
-        if((stackSize - 1) > 1){
+        if(stackSize > 1){
             throw stackSize;
         }
     }
